@@ -1,0 +1,29 @@
+@import ../../variables
+.restaurant
+    width: 100%
+    display: grid
+    grid-template-columns: auto auto
+    .restaurant_item
+        padding: 10px
+        position: relative
+        cursor: pointer
+        display: flex
+        flex-direction: column-reverse
+        .restaurant_info
+            font-size: 21px
+            color: $Text-Lighter
+            position: relative
+            z-index: 2
+        &::after
+            content: ''
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            background-color: rgba(0, 0, 0, .5)
+            transition: background-color .2s
+        &:hover
+            &::after
+                background-color: rgba(0, 0, 0, .3)
+                transition: background-color .2s

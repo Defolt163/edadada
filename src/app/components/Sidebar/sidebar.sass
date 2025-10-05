@@ -1,0 +1,96 @@
+@import ../../variables.sass
+
+.sidebar
+    border-radius: 0 16px 16px 0
+    background: $Dark-Bg-2
+    min-height: 100vh
+    width: max-content
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: space-between
+    ul
+        list-style: none
+        padding: 10px 0 0 10px
+        margin: 0
+        li
+            cursor: pointer
+            display: flex
+            align-items: center
+            justify-content: center
+            background: $Dark-Bg-2
+            border-radius: 12px
+            position: relative
+            z-index: 2
+            &:first-child
+                padding-bottom: 24px
+            &.active
+                border-radius: 12px 0px 0px 12px
+                background-color: $Dark-Bg-1
+                z-index: 1
+                &::before
+                    content: ''
+                    right: 0
+                    bottom: -11px
+                    position: absolute
+                    background-color: $Dark-Bg-1
+                    height: 13px
+                    width: 13px
+                &::after
+                    content: ''
+                    right: 0
+                    top: -11px
+                    position: absolute
+                    background-color: $Dark-Bg-1
+                    height: 13px
+                    width: 13px
+            .item
+                margin: 0
+                padding: 31px 42px 29px 30px
+                position: relative
+                .icon
+                    background-color: $Primary-Color
+                    mask-size: contain
+                    margin: 0
+                    width: 24px
+                    height: 24px
+                    &.ico-logo
+                        mask: url('/icons/home-logo.svg') no-repeat center
+                        width: 33.33px
+                        height: 32px
+                        background: linear-gradient(180.00deg, rgba(234, 151.4399871826172, 104.99999237060547, 1),rgba(234, 104.99999237060547, 105.00003814697266, 1) 100%)
+                    &.ico-home
+                        mask: url('/icons/home.svg') no-repeat center
+                    &.ico-discount
+                        mask: url('/icons/Discount.svg') no-repeat center
+                    &.ico-notification
+                        mask: url('/icons/Notification.svg') no-repeat center
+                    &.ico-settings
+                        mask: url('/icons/Setting.svg') no-repeat center
+                    &.ico-dashboard
+                        mask: url('/icons/Dashboard.svg') no-repeat center
+                &.logo
+                    padding: 16px
+                    margin: 13px
+                    border-radius: 12px
+                    background: rgba(235, 150, 106, .3)
+                &.active
+                    padding: 16px
+                    margin: 13px
+                    border-radius: 8px
+                    box-shadow: 0px 8px 24px 0px rgba(234, 124, 105, 0.32);
+                    background: $Primary-Color
+                    .icon
+                        background-color: $White
+
+    .logout
+        cursor: pointer
+        padding: 31px
+        .ico
+            background-color: $Primary-Color
+            mask: url('/icons/Log-Out.svg') no-repeat center
+            mask-size: contain
+            margin: 0
+            width: 24px
+            height: 24px
+                    
