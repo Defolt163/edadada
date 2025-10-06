@@ -4,55 +4,207 @@
     position: fixed
     top: 0
     right: 0
-    height: 100dvh
+    height: 100%
     background-color: $Dark-Bg-2
     border-radius: 8px
     color: $Text-Lighter
     padding: 24px
-    &__wrapper
-        margin-top: 15px
-        overflow: scroll-y
-        .cart_item
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    .cart
+        height: calc( 100% - 48px )
+        .cart_header
             display: flex
-            align-items: center
             justify-content: space-between
-            .cart_item__wrapper
-                display: flex
-                margin-bottom: 10px
-                &:last-child
-                    margin-bottom: 0
-                .cart_item__image
-                    border-radius: 8px
-                    width: 80px
-                    aspect-ratio: 1 / 1
+            align-items: flex-end
+            h3
+                font-size: 16px
+                font-weight: 400
+                color: $Text-Gray
+                cursor: pointer
+        .cart_delivery-option
+            display: flex
+            margin: 20px 0
+            .button
+                background: transparent
+                position: relative
+                overflow: hidden
+                &::before
+                    z-index: -1
+                    position: absolute
+                    top: 0
+                    left: 0
+                    height: 100%
+                    width: 100%
+                    transform: translateX(100%)
+                    transition: transform .4s ease-in
+                    content: ''
+                    background-color: $Primary-Color
+                &:first-child
                     margin-right: 10px
-                .cart_item__info
-                    display: flex
-                    flex-direction: column
-                    justify-content: space-between
-                    .info_food__name
-                        font-weight: 400
-                    .info_food__type
-                        font-weight: 400
-                        font-size: 14px
-                    .info_food__price
-                        font-size: 14px
-            .cart_counter
-                background-color: $Dark-Bg-1
+            .pickup
+                &.active
+                    &::before
+                        transform: translateX(0)
+                        transition: transform .5s ease-out
+            .delivery
+                &::before
+                    transform: translateX(-100%)
+                &.active
+                    &::before
+                        transform: translateX(0)
+
+        .restaurant_cart__wrapper
+            margin-top: 15px
+            overflow-y: auto
+            height: 80%
+            padding-right: 15px
+            &::-webkit-scrollbar
+                width: 3px
+            &::-webkit-scrollbar-track
+                background: #f1f1f1
+                border-radius: 4px
+            &::-webkit-scrollbar-thumb
+                background: $Primary-Color
+                border-radius: 4px
+                &:hover
+                    background: #a8a8a8
+            .cart_item
                 display: flex
                 align-items: center
-                border: 1px solid $Primary-Color
-                border-radius: 12px
-                height: 100%
-                overflow: hidden
-                .count
-                    font-size: 20px
-                    padding: 0 5px
-                .counter_control
-                    line-height: 0
-                    padding: 4px
+                justify-content: space-between
+                .cart_item__wrapper
+                    display: flex
+                    margin-bottom: 10px
+                    &:last-child
+                        margin-bottom: 0
+                    .cart_item__image
+                        border-radius: 8px
+                        width: 80px
+                        aspect-ratio: 1 / 1
+                        margin-right: 10px
+                    .cart_item__info
+                        display: flex
+                        flex-direction: column
+                        justify-content: space-between
+                        .info_food__name
+                            font-weight: 400
+                        .info_food__type
+                            font-weight: 400
+                            font-size: 14px
+                        .info_food__price
+                            font-size: 14px
+                .cart_counter
+                    background-color: $Dark-Bg-1
+                    display: flex
+                    align-items: center
+                    border: 1px solid $Primary-Color
+                    border-radius: 12px
+                    height: 100%
+                    overflow: hidden
+                    .count
+                        font-size: 16px
+                        padding: 0 5px
+                    .counter_control
+                        line-height: 0
+                        padding: 4px
+                        cursor: pointer
+                        &:hover
+                            background-color: $Form-BG
+    .cart_option
+        border-top: 1px solid $Primary-Color
+        .pickup_option
+            margin: 20px 0
+            &__item
+                display: flex
+                justify-content: space-between
+                align-items: center
+                .info_ico
+                    font-size: 24px
                     cursor: pointer
-                    &:hover
+                &__info
+                    display: flex
+                    align-items: center
+                    .item_ico
+                        font-size: 32px
+                        margin-right: 8px
+                    h3
+                        font-weight: 500
+                        font-size: 16px
+                        span
+                            font-size: 14px
+        .button
+            display: flex
+            justify-content: space-between
+            background-color: $Primary-Color
+
+    .modal_overflow
+        width: 100vw
+        height: 100vh
+        position: fixed
+        top: 0
+        left: 0
+        background-color: rgba(0, 0, 0, .3)
+        display: none
+        &.active
+            display: block
+    .option_modal_window
+        display: none
+        position: fixed
+        z-index: 999
+        top: 50%
+        left: 50%
+        width: 700px
+        height: max-content
+        border-radius: 12px
+        transform: translate(-50%, -50%)
+        background-color: $Dark-Bg-2
+        padding: 24px
+        &.active
+            display: block
+        .x_mark
+            position: absolute
+            top: 10px
+            right: 10px
+            font-size: 32px
+            cursor: pointer
+            &:hover
+                background-color: $Dark-Bg-1
+                border-radius: 8px
+        h2
+            text-align: center
+            margin-bottom: 20px
+        .pickup_contract
+            &:nth-of-type(1)
+                margin-bottom: 20px
+            .option_header
+                border: 2px solid $Dark-Bg-1
+                padding: 20px
+                border-radius: 12px
+                display: flex
+                justify-content: space-between
+                align-items: center
+                span
+                    display: flex
+                    align-items: center
+                    .item_ico
+                        font-size: 36px
                         background-color: $Form-BG
+                        border-radius: 8px
+                        margin-right: 8px
+            .option_descr
+                border: 2px solid $Dark-Bg-1
+                border-top: none
+                padding: 24px 20px 20px 20px
+                border-radius: 0 0 12px 12px
+                transform: translateY(-7px)
+                background-color: $Dark-Bg-1
+                h3
+                    font-size: 18px
+                    margin-bottom: 10px
+                h4
+                    font-weight: 500
+                    font-size: 14px
 
                         

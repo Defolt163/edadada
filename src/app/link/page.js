@@ -109,14 +109,13 @@ export default function RestaurantPage(){
                                     <p>{data.time}</p>
                                 </div> : null
                             }
-                            
                         </div>
                     </div>
                 </div>
                 <ul className='restaurant_menu_category'>
                         <li className='restaurant_menu_category__item active'>Популярное</li>
                     {categories?.map((categoryItem)=>(
-                        <l className='restaurant_menu_category__item' key={categoryItem}>{categoryItem}</l>
+                        <li className='restaurant_menu_category__item' key={categoryItem}>{categoryItem}</li>
                     ))}
                 </ul>
                 <RestaurantMenu menu={data.menu}/>
