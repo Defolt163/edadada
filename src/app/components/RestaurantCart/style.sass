@@ -1,0 +1,58 @@
+@import ../../variables
+.restaurant_cart
+    min-width: 400px
+    position: fixed
+    top: 0
+    right: 0
+    height: 100dvh
+    background-color: $Dark-Bg-2
+    border-radius: 8px
+    color: $Text-Lighter
+    padding: 24px
+    &__wrapper
+        margin-top: 15px
+        overflow: scroll-y
+        .cart_item
+            display: flex
+            align-items: center
+            justify-content: space-between
+            .cart_item__wrapper
+                display: flex
+                margin-bottom: 10px
+                &:last-child
+                    margin-bottom: 0
+                .cart_item__image
+                    border-radius: 8px
+                    width: 80px
+                    aspect-ratio: 1 / 1
+                    margin-right: 10px
+                .cart_item__info
+                    display: flex
+                    flex-direction: column
+                    justify-content: space-between
+                    .info_food__name
+                        font-weight: 400
+                    .info_food__type
+                        font-weight: 400
+                        font-size: 14px
+                    .info_food__price
+                        font-size: 14px
+            .cart_counter
+                background-color: $Dark-Bg-1
+                display: flex
+                align-items: center
+                border: 1px solid $Primary-Color
+                border-radius: 12px
+                height: 100%
+                overflow: hidden
+                .count
+                    font-size: 20px
+                    padding: 0 5px
+                .counter_control
+                    line-height: 0
+                    padding: 4px
+                    cursor: pointer
+                    &:hover
+                        background-color: $Form-BG
+
+                        

@@ -1,0 +1,28 @@
+@import ../../variables
+.food_list
+    .food_list__header
+        margin-bottom: 34px
+    .food_card_wrapper
+        display: grid
+        grid-template-columns: 192px 192px 192px 192px
+        gap: 24px 28px
+        .food_card
+            background-color: $Dark-Bg-2
+            border-radius: 16px
+            color: $White
+            overflow: hidden
+            .card_image
+                width: 100%
+                aspect-ratio: 1/1
+            .card_info
+                padding: 0 10px
+                font-size: 14px
+                margin: 14px 0 24px
+                .card_info__name
+                    font-weight: 500
+                    margin-bottom: 8px
+                .card_info__price
+                    font-weight: 700
+                .card_info__caloric
+                    font-size: 12px
+                    font-weight: 400
