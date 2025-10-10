@@ -3,6 +3,7 @@ body
     background: $Dark-Bg-1
     margin: 0
     padding: 0 0 0 120px
+    color: $White
 
 .button
     box-sizing: border-box
@@ -18,3 +19,36 @@ body
         border-radius: 8px
         box-shadow: 0px 0px 24px 0px rgba(146, 136, 224, 0.3)
         background: $Primary-Color
+
+input
+    box-sizing: border-box
+    border: 1px solid $Dark-Line
+    border-radius: 8px
+    background: $Form-BG
+    padding: 18px 14px
+    color: $Text-Light
+    &:focus
+        outline: none
+        color: $White
+.page
+    padding: 40px 10px 10px 20px
+
+.page_header
+    font-size: 24px
+
+.page_subheader
+    font-size: 21px
+    font-weight: 500
+
+
+.modal_overflow
+    width: 100vw
+    height: 100vh
+    position: fixed
+    top: 0
+    left: 0
+    background-color: rgba(0, 0, 0, .6)
+    display: none
+    z-index: 98
+    &.active
+        display: block

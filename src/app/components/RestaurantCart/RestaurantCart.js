@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 import './style.sass'
 import { FaPlus, FaMinus } from "react-icons/fa6";
 import { MdOutlineDeliveryDining  } from "react-icons/md";
@@ -6,7 +6,7 @@ import { LiaInfoCircleSolid, LiaShoppingBagSolid } from "react-icons/lia";
 import { BiSolidCircle } from "react-icons/bi";
 import { HiMiniXMark } from "react-icons/hi2";
 import { motion } from "motion/react"
-export default function RestaurantCart(){
+export default function RestaurantCart({setPayOpen, payOpen}){
     let cart = [
         {
             foodId: 1,
@@ -60,19 +60,14 @@ export default function RestaurantCart(){
             ]
         },
     ]
-    const [deliveryMode, setDeliveryMode] = useState(false)
-    const [modalOption, setModalOption] = useState(false)
+    
 
     return(
-        <div className='restaurant_cart'>
+        <div className={`restaurant_cart ${payOpen ? 'pay_open' : ''}`}>
             <div className='cart'>
                 <div className='cart_header'>
                     <h2>Корзина</h2>
                     <h3>Очистить</h3>
-                </div>
-                <div className='cart_delivery-option'>
-                    <div onClick={()=>{setDeliveryMode(false)}} className={`pickup button ${!deliveryMode ? 'active' : null}`}>Самовывоз</div>
-                    <div onClick={()=>{setDeliveryMode(true)}} className={`delivery button ${deliveryMode ? 'active' : null}`}>Доставка</div>
                 </div>
                 <div className='restaurant_cart__wrapper'>
                     {cart.map((item)=>(
@@ -97,7 +92,7 @@ export default function RestaurantCart(){
                 </div>
             </div>
             <div className='cart_option'>
-                <div className='pickup_option'>
+                {/* <div className='pickup_option'>
                             <div className='pickup_option__item'>
                                 <div className='pickup_option__item__info'>
                                     {
@@ -115,10 +110,13 @@ export default function RestaurantCart(){
                                 </div>
                                 <LiaInfoCircleSolid onClick={()=>{setModalOption(true)}} className='info_ico' />
                             </div>
-                </div>
-                <div className='button'><div>Продолжить</div> <div>{deliveryMode ? 1000 + 99 : 1000}р</div></div>
+                </div> */}
+                {   !payOpen ?
+                    <div className='button' onClick={()=>{setPayOpen(true)}}>{}<div>Продолжить</div> <div>{1000}р</div></div>
+                    : null
+                }
             </div>
-            <div className={`option_modal_window ${modalOption ? ' active' : ''}`}>
+            {/* <div className={`option_modal_window ${modalOption ? ' active' : ''}`}>
                 <HiMiniXMark onClick={()=>{setModalOption(false)}} className='x_mark'/>
                 <h2>Текущие условия</h2>
                 {
@@ -160,7 +158,7 @@ export default function RestaurantCart(){
                     </div>
                 </div>
             </div>
-            <div className={`modal_overflow ${modalOption ? ' active' : ''}`} onClick={()=>{setModalOption(false)}}></div>
+            <div className={`modal_overflow ${modalOption ? ' active' : ''}`} onClick={()=>{setModalOption(false)}}></div> */}
         </div>
     )
 }

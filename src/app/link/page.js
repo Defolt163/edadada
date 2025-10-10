@@ -5,6 +5,7 @@ import { LiaInfoCircleSolid, LiaUserClockSolid } from "react-icons/lia";
 import { info } from 'sass';
 import RestaurantMenu from '../components/RestaurantMenu/RestaurantMenu';
 import RestaurantCart from '../components/RestaurantCart/RestaurantCart';
+import Payment from '../components/Payment/Payment';
 export default function RestaurantPage(){
     const data = {
         restaurantId: 1,
@@ -23,6 +24,24 @@ export default function RestaurantPage(){
                 foodCategory: 'Горячее',
                 foodPrice: 1200,
                 foodDescription: 'Lorem Ispnum',
+                foodOption: [
+                    {
+                        name: 'Перец Халапеньо',
+                        weight: 35,
+                        price: 59
+                    },
+                    {
+                        name: 'Лук жареный',
+                        weight: 35,
+                        price: 59
+                    },
+                    {
+                        name: 'Огурчик бочковой',
+                        weight: 35,
+                        price: 59
+                    },
+
+                ],
                 caloricСontent: [
                     {
                         weight: 445,
@@ -40,6 +59,7 @@ export default function RestaurantPage(){
                 foodCategory: 'Горячее',
                 foodPrice: 1200,
                 foodDescription: 'Lorem Ispnum',
+                foodOption: [],
                 caloricСontent: [
                     {
                         weight: 445,
@@ -57,6 +77,7 @@ export default function RestaurantPage(){
                 foodCategory: 'Соусы',
                 foodPrice: 1200,
                 foodDescription: 'Lorem Ispnum',
+                foodOption: [],
                 caloricСontent: [
                     {
                         weight: 445,
@@ -82,6 +103,8 @@ export default function RestaurantPage(){
         
         return arr.filter((item, index) => arr.indexOf(item) === index);
     }, [data?.menu]);
+
+    const [payOpen, setPayOpen] = useState(false)
     return(
         <div className="restaurant_page" onClick={infoStatus ? ()=>{setInfoStatus(false)}: null}>
             <div className='restaurant_page__wrapper'>
@@ -120,7 +143,9 @@ export default function RestaurantPage(){
                 </ul>
                 <RestaurantMenu menu={data.menu}/>
             </div>
-            <RestaurantCart/>
+            <RestaurantCart setPayOpen={setPayOpen} payOpen={payOpen}/>
+            <Payment setPayOpen={setPayOpen} payOpen={payOpen}/>
+            {payOpen ? <div onClick={()=>{setPayOpen(false)}} className='modal_overflow active'></div> : null}
         </div>
     )
 }

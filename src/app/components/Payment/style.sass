@@ -1,0 +1,168 @@
+@import ../../variables
+.payment_block
+    position: fixed
+    right: 0
+    top: 0
+    animation: open .3s ease-in forwards
+    height: 100%
+    background-color: $Dark-Bg-2
+    border-left: 1px solid $Dark-Line
+    padding: 24px
+    z-index: 99
+    color: $White
+    .payment_method__block
+        margin: 20px 0
+        .payment_method
+            display: flex
+            margin-top: 10px
+            .payment_method__item
+                width: 100px
+                height: 70px
+                background-color: #3d3d3d
+                border-radius: 8px
+                cursor: pointer
+                margin-right: 10px
+                &:last-child
+                    margin-right: 0
+    .payment_delivery-option
+        display: flex
+        margin: 20px 0
+        .button
+            background: transparent
+            position: relative
+            overflow: hidden
+            &::before
+                z-index: -1
+                position: absolute
+                top: 0
+                left: 0
+                height: 100%
+                width: 100%
+                transform: translateX(100%)
+                transition: transform .4s ease-in
+                content: ''
+                background-color: $Primary-Color
+            &:first-child
+                margin-right: 10px
+        .pickup
+            &.active
+                &::before
+                    transform: translateX(0)
+                    transition: transform .5s ease-out
+        .delivery
+            &::before
+                transform: translateX(-100%)
+            &.active
+                &::before
+                    transform: translateX(0)
+    .pick_up
+        h3
+            margin-bottom: 15px
+        h4
+            background-color: $Form-BG
+            padding: 10px
+            border-radius: 8px
+    .delivery
+        .delivery_form
+            margin-top: 20px
+            .delivery_form__input
+                display: flex
+                flex-direction: column
+                margin-bottom: 10px
+                position: relative
+                input
+                    padding: 25px 14px 2px
+                    font-size: 16px
+                label
+                    position: absolute
+                    top: 50%
+                    left: 14px
+                    transform: translateY(-50%)
+                    cursor: text
+                    color: $Text-Light
+                    transition: color .3s
+                    &.active
+                        font-size: 12px
+                        transition: transform .3s
+                        animation: anim .3s ease-in forwards 
+                    &.disable
+                        animation: animRev .3s ease-in forwards
+                &:hover
+                    label
+                        color: $White
+                        transition: color .3s
+            .delivery_form__input__block
+                display: grid
+                grid-template-columns: repeat(4, calc( 25% - 7.8px ))
+                gap: 10px
+                .delivery_form__input__block_item
+                    width: 100%
+                    margin-bottom: 0
+    .about_price
+        margin-top: 20px
+        width: 80%
+        .about_price__block
+            margin-top: 15px
+            .about_price__block_item
+                display: flex
+                justify-content: space-between
+                margin-bottom: 16px
+                h4
+                    font-weight: 400
+                    font-size: 16px
+                .price
+                    font-weight: 600
+    .discount
+        width: 80%
+        .discount_block
+            display: flex
+            input
+                border-radius: 8px 0 0 8px
+            .button
+                border-radius: 0 8px 8px 0
+        .discount_item
+            margin-top: 15px
+            display: flex
+            align-items: center
+            justify-content: space-between
+            .discount_item__text
+                font-weight: 400
+                font-size: 14px
+            .discount_item__name
+                width: 60%
+            .discount_item__price
+                font-size: 16px
+                font-weight: 600
+    .payment_accept
+        width: 80%
+        margin-top: 20px
+        display: flex
+        justify-content: space-between
+        align-items: center
+        h3
+            font-size: 28px
+        .button
+            width: 100%
+            background: $Primary-Color
+            margin-right: 20px
+
+@keyframes anim 
+    0%
+        transform: translateY(-50%)
+    100%
+        top: 2px
+        transform: translateY(0)
+
+@keyframes animRev 
+    0%
+        top: 2px
+        transform: translateY(0)
+    100%
+        transform: translateY(-50%)
+
+@keyframes open
+    0%
+        width: 0px
+    100%
+        width: 500px
+    
